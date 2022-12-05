@@ -1,7 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import { useParams, useNavigate } from "react-router-dom";
 
 function SingleProductPage() {
+  const { id } = useParams();
+  const navigate = useNavigate();
   return <div>SingleProductPage</div>;
 }
 
