@@ -5,8 +5,11 @@ import logo from "../assets/logo.svg";
 import { Link } from "react-router-dom";
 import { links } from "../utils/constants";
 import CartButtons from "./CartButtons";
+import { useProductsContext } from "../context/products_context";
 
 function Sidebar() {
+  const data = useProductsContext();
+  console.log(data);
   const isOpen = false;
   return (
     <SidebarContainer>
@@ -30,7 +33,7 @@ function Sidebar() {
             <Link to="/checkout">Checkout</Link>
           </li>
         </ul>
-        <CartButtons/>
+        <CartButtons />
       </aside>
     </SidebarContainer>
   );
