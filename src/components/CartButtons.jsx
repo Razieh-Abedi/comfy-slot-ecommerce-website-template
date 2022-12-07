@@ -1,9 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 import { FaShoppingCart, FaUserMinus, FaUserPlus } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function CartButtons() {
-  return <div>CartButtons</div>;
+  return (
+    <Wrapper className="cart-btn-wrapper">
+      <Link to="/cart" className="cart-btn">
+        Cart
+        <span className="cart-container">
+          <FaShoppingCart />
+          <span className="cart-value">12</span>
+        </span>
+      </Link>
+      <button type="button" className="auth-btn">
+        Login <FaUserPlus/>
+      </button>
+    </Wrapper>
+  );
 }
 const Wrapper = styled.div`
   display: grid;
