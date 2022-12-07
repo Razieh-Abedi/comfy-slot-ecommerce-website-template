@@ -1,9 +1,39 @@
 import React from "react";
 import styled from "styled-components";
 import { FaTimes } from "react-icons/fa";
+import logo from "../assets/logo.svg";
+import { Link } from "react-router-dom";
+import { links } from "../utils/constants";
+import CartButtons from "./CartButtons";
 
 function Sidebar() {
-  return <div>Sidebar</div>;
+  const isOpen = false;
+  return (
+    <SidebarContainer>
+      <aside className={`${isOpen ? "show-sidebar sidebar" : "sidebar"}`}>
+        <div className="sidebar-header">
+          <img src={logo} alt="comfy sloth logo" className="logo" />
+          <button type="button" className="close-btn">
+            <FaTimes />
+          </button>
+        </div>
+        <ul className="links">
+          {links.map((link) => {
+            const { id, text, url } = link;
+            return (
+              <li key={id}>
+                <Link to={url}>{text}</Link>
+              </li>
+            );
+          })}
+          <li>
+            <Link to="/checkout">Checkout</Link>
+          </li>
+        </ul>
+        <CartButtons/>
+      </aside>
+    </SidebarContainer>
+  );
 }
 
 const SidebarContainer = styled.div`
