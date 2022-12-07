@@ -1,8 +1,17 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-function PageHero() {
-  return <div>PageHero</div>;
+function PageHero({ title }) {
+  return (
+    <Wrapper>
+      <div className="section-center">
+        <h3>
+          <Link to="/">Home</Link>/ {title}
+        </h3>
+      </div>
+    </Wrapper>
+  );
 }
 
 const Wrapper = styled.section`
