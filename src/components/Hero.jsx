@@ -1,8 +1,32 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import heroBcg from "../assets/hero-bcg.jpeg";
+import heroBcg2 from "../assets/hero-bcg-2.jpeg";
 
 function Hero() {
-  return <div>Hero</div>;
+  return (
+    <Wrapper className="section-center">
+      <article className="content">
+        <h1>
+          design your <br />
+          comfort zone
+        </h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ratione
+          perspiciatis odit reprehenderit distinctio expedita repudiandae
+          temporibus in vel necessitatibus.
+        </p>
+        <Link to="/products" className="btn hero-btn">
+          shop now
+        </Link>
+      </article>
+      <article className="img-container">
+        <img src={heroBcg} alt="nice table" className="main-img" />
+        <img src={heroBcg2} alt="person working" className="accent-img" />
+      </article>
+    </Wrapper>
+  );
 }
 
 const Wrapper = styled.section`

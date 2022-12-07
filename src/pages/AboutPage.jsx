@@ -6,7 +6,7 @@ import aboutImg from "../assets/hero-bcg.jpeg";
 function AboutPage() {
   return (
     <main>
-      <PageHero title="about"/>
+      <PageHero title="about" />
       <Wrapper className="page section section-center">
         <img src={aboutImg} alt="nice desk" />
         <article>
@@ -15,9 +15,12 @@ function AboutPage() {
             <div className="underline"></div>
           </div>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates
-            ratione explicabo eveniet ab maiores, hic nobis, cum eaque vel amet
-            eos ut odio! Recusandae architecto eum illum harum obcaecati iste.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab, fugiat
+            itaque quos veniam, perferendis, iure nemo asperiores recusandae
+            porro non maxime ducimus alias. Suscipit tenetur eveniet harum vitae
+            necessitatibus autem minus facilis omnis nemo, velit fuga
+            consequuntur assumenda esse placeat recusandae dicta soluta quod
+            praesentium consequatur! Sunt eligendi rem commodi.
           </p>
         </article>
       </Wrapper>
