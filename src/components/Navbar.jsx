@@ -5,8 +5,10 @@ import logo from "../assets/logo.svg";
 import { Link } from "react-router-dom";
 import { links } from "../utils/constants";
 import CartButtons from "./CartButtons";
+import { useProductsContext } from "../context/products_context";
 
 function Navbar() {
+  const { openSidebar } = useProductsContext();
   return (
     <NavContainer>
       <div className="nav-center">
@@ -14,21 +16,21 @@ function Navbar() {
           <Link to="/">
             <img src={logo} alt="Comfy Sloth Logo" />
           </Link>
-          <button type="button" className="nav-toggle">
+          <button type="button" className="nav-toggle" onClick={openSidebar}>
             <FaBars />
           </button>
         </div>
         <ul className="nav-links">
           {links.map((link) => {
             const { id, text, url } = link;
-            return <li key={id}>
-              <Link to={url}>
-                {text}
-              </Link>
-            </li>;
+            return (
+              <li key={id}>
+                <Link to={url}>{text}</Link>
+              </li>
+            );
           })}
         </ul>
-        <CartButtons/>
+        <CartButtons />
       </div>
     </NavContainer>
   );
