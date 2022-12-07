@@ -2,7 +2,12 @@ import React from "react";
 import styled from "styled-components";
 
 function Footer() {
-  return <div>Footer</div>;
+  return (
+    <Wrapper>
+      <h5>&copy; {new Date().getFullYear()}</h5>
+      <h5>All rights reserved</h5>
+    </Wrapper>
+  );
 }
 
 const Wrapper = styled.footer`
