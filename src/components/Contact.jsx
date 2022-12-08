@@ -2,7 +2,35 @@ import React from "react";
 import styled from "styled-components";
 
 function Contact() {
-  return <div>Contact</div>;
+  return (
+    <Wrapper>
+      <div className="section-center">
+        <h3>Join our newsletter and get 20% off</h3>
+        <div className="content">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam eos
+            tempore quibusdam unde doloremque quidem exercitationem sunt maiores
+            necessitatibus fugit.
+          </p>
+          <form
+            className="contact-form"
+            method="POST"
+            action="https://formspree.io/f/mwkzgnqe"
+          >
+            <input
+              type="email"
+              className="form-input"
+              placeholder="Enter email"
+              name="email"
+            />
+            <button type="submit" className="submit-btn">
+              subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+    </Wrapper>
+  );
 }
 const Wrapper = styled.section`
   padding: 5rem 0;
