@@ -24,6 +24,26 @@ const filter_reducer = (state, action) => {
   if (action.type === SET_LISTVIEW) {
     return { ...state, grid_view: false };
   }
+  if (action.type === UPDATE_SORT) {
+    return { ...state, sort: action.payload };
+  }
+  // if (action.type === SORT_PRODUCTS) {
+  //   const { sort, filtered_products } = state;
+  //   let tempProducts = [];
+  //   if (sort === "price-lowest") {
+  //     console.log("lowest price");
+  //   }
+  //   if (sort === "price-highest") {
+  //     console.log("price-highest");
+  //   }
+  //   if (sort === "name-a") {
+  //     console.log("name-a");
+  //   }
+  //   if (sort === "name-z") {
+  //     console.log("name-z");
+  //   }
+  // }
+  // return state;
   throw new Error(`No matching "${(action, type)}"- action-type`);
 };
 export default filter_reducer;
