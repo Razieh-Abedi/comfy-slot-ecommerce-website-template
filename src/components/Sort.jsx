@@ -5,14 +5,27 @@ import { useFilterContext } from "../context/filter_context";
 import products_reducer from "../reducers/products_reducer";
 
 function Sort() {
-  const { filtered_products: products, grid_view } = useFilterContext();
+  const {
+    filtered_products: products,
+    grid_view,
+    setGridView,
+    setListView,
+  } = useFilterContext();
   return (
     <Wrapper>
       <div className="btn-container">
-        <button type="button" className={`${grid_view ? "active" : null}`}>
+        <button
+          type="button"
+          className={`${grid_view ? "active" : null}`}
+          onClick={setGridView}
+        >
           <BsFillGridFill />
         </button>
-        <button type="button" className={`${!grid_view ? "active" : null}`}>
+        <button
+          type="button"
+          className={`${!grid_view ? "active" : null}`}
+          onClick={setListView}
+        >
           <BsList />
         </button>
       </div>
