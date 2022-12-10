@@ -38,15 +38,16 @@ const FilterProvider = ({ children }) => {
     dispatch({ type: SET_LISTVIEW });
   };
 
-  // useEffect(() => {
-  //   dispatch({ type: SORT_PRODUCTS });
-  // }, [products, state.sort]);
-
   const updateSort = (e) => {
+    //for demonstration:
     // const name = e.target.name;
     const value = e.target.value;
    dispatch({type:UPDATE_SORT, payload:value })
   };
+
+  useEffect(() => {
+    dispatch({ type: SORT_PRODUCTS });
+  }, [products, state.sort]);
 
   return (
     <FilterContext.Provider
