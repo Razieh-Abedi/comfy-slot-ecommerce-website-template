@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState, useEffect, useContext, useReducer } from "react";
+import React, { useEffect, useContext, useReducer } from "react";
 import { products_url as url } from "../utils/constants";
 import reducer from "../reducers/products_reducer";
 import {
