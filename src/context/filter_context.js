@@ -29,7 +29,7 @@ const FilterProvider = ({ children }) => {
   );
 
   return (
-    <FilterContext.Provider value="hii">{children}</FilterContext.Provider>
+    <FilterContext.Provider value={{...state}}>{children}</FilterContext.Provider>
   );
 };
 

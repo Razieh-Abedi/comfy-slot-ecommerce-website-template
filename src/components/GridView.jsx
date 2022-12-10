@@ -1,8 +1,18 @@
 import React from "react";
 import styled from "styled-components";
+import Product from "./Product";
 
-function GridView() {
-  return <div>GridView</div>;
+function GridView({ products }) {
+  return (
+    <Wrapper>
+      <div className="products-container">
+        {products.map((product) => {
+          console.log(product);
+          return <Product key={product.id} {...product} />;
+        })}
+      </div>
+    </Wrapper>
+  );
 }
 
 const Wrapper = styled.section`

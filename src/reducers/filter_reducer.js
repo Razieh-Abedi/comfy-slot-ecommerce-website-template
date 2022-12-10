@@ -18,6 +18,6 @@ const filter_reducer = (state, action) => {
       filtered_products: [...action.payload],
     };
   }
-  // throw new Error(`No matching "${(action, type)}"- action-type`);
+  throw new Error(`No matching "${(action, type)}"- action-type`);
 };
 export default filter_reducer;
