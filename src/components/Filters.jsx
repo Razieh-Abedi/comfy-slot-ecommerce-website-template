@@ -63,6 +63,20 @@ function Filters() {
             </div>
           </div>
           {/* end of categories filter */}
+          {/* companies filter */}
+          <div className="form-control">
+            <h5>company</h5>
+            <select name="company" value={company} onChange={updateFilters} className="company">
+              {companies.map((item, index) => {
+                return (
+                  <option value={item} key={index}>
+                    {item}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+          {/* end of companies filter */}
         </form>
       </div>
     </Wrapper>
