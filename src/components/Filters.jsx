@@ -1,9 +1,43 @@
 import React from "react";
 import styled from "styled-components";
 import { FaCheck } from "react-icons/fa";
+import { useFilterContext } from "../context/filter_context";
+import { formatPrice } from "../utils/helpers";
 
 function Filters() {
-  return <div>Filters</div>;
+  const {
+    updateFilters,
+    clearFilters,
+    all_products,
+    filters: {
+      text,
+      company,
+      color,
+      min_price,
+      max_price,
+      price,
+      category,
+      shipping,
+    },
+  } = useFilterContext();
+  return (
+    <Wrapper>
+      <div className="content">
+        <form onSubmit={(e) => e.preventDefault()}>
+          <div className="form-control">
+            <input
+              type="text"
+              name="text"
+              className="search-input"
+              placeholder="search"
+              value={text}
+              onChange={updateFilters}
+            />
+          </div>
+        </form>
+      </div>
+    </Wrapper>
+  );
 }
 const Wrapper = styled.section`
   .form-control {
