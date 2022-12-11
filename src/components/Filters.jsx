@@ -66,7 +66,12 @@ function Filters() {
           {/* companies filter */}
           <div className="form-control">
             <h5>company</h5>
-            <select name="company" value={company} onChange={updateFilters} className="company">
+            <select
+              name="company"
+              value={company}
+              onChange={updateFilters}
+              className="company"
+            >
               {companies.map((item, index) => {
                 return (
                   <option value={item} key={index}>
@@ -77,6 +82,44 @@ function Filters() {
             </select>
           </div>
           {/* end of companies filter */}
+          {/* colors filter */}
+          <div className="form-control">
+            <h5>colors</h5>
+            <div className="colors">
+              {colors.map((item, index) => {
+                if (item === "all") {
+                  return (
+                    <button
+                      key={index}
+                      name="color"
+                      onClick={updateFilters}
+                      data-color="all"
+                      className={`${
+                        color === "all" ? "all-btn active" : "all-btn"
+                      }`}
+                    >
+                      all
+                    </button>
+                  );
+                }
+                return (
+                  <button
+                    key={index}
+                    name="color"
+                    style={{ background: item }}
+                    className={`${
+                      color === item ? "color-btn active" : "color-btn"
+                    }`}
+                    data-color={item}
+                    onClick={updateFilters}
+                  >
+                    {color === item ? <FaCheck /> : null}
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+          {/* end of colors filter */}
         </form>
       </div>
     </Wrapper>
