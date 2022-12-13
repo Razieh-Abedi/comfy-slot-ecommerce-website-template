@@ -134,7 +134,22 @@ function Filters() {
             />
           </div>
           {/* end of price filters */}
+          {/* shipping filters */}
+          <div className="form-control shipping">
+            <label htmlFor="shipping">free shipping</label>
+            <input
+              type="checkbox"
+              name="shipping"
+              id="shipping"
+              onChange={updateFilters}
+              checked={shipping}
+            />
+          </div>
+          {/* end of shipping filters */}
         </form>
+        <button type="button" onClick={clearFilters} className="clear-btn">
+          clear filters
+        </button>
       </div>
     </Wrapper>
   );
