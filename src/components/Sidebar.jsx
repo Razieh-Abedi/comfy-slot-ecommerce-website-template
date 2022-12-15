@@ -6,13 +6,17 @@ import { Link } from "react-router-dom";
 import { links } from "../utils/constants";
 import CartButtons from "./CartButtons";
 import { useProductsContext } from "../context/products_context";
+import { useUserContext } from "../context/user_context";
 
 function Sidebar() {
-  const {isSidebarOpen, closeSidebar} = useProductsContext();
-  
+  const { isSidebarOpen, closeSidebar } = useProductsContext();
+  const { myUser } = useUserContext();
+
   return (
     <SidebarContainer>
-      <aside className={`${isSidebarOpen ? "show-sidebar sidebar" : "sidebar"}`}>
+      <aside
+        className={`${isSidebarOpen ? "show-sidebar sidebar" : "sidebar"}`}
+      >
         <div className="sidebar-header">
           <img src={logo} alt="comfy sloth logo" className="logo" />
           <button type="button" className="close-btn" onClick={closeSidebar}>
@@ -24,13 +28,19 @@ function Sidebar() {
             const { id, text, url } = link;
             return (
               <li key={id}>
-                <Link to={url} onClick={closeSidebar}>{text}</Link>
+                <Link to={url} onClick={closeSidebar}>
+                  {text}
+                </Link>
               </li>
             );
           })}
-          <li>
-            <Link to="/checkout" onClick={closeSidebar}>Checkout</Link>
-          </li>
+          {myUser && (
+            <li>
+              <Link to="/checkout" onClick={closeSidebar}>
+                Checkout
+              </Link>
+            </li>
+          )}
         </ul>
         <CartButtons />
       </aside>
