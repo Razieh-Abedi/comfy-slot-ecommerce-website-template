@@ -26,6 +26,7 @@ function SingleProductPage() {
 
   useEffect(() => {
     fetchSingleProduct(`${url}${id}`);
+    // eslint-disable-next-line
   }, [id]);
 
   useEffect(() => {
@@ -34,6 +35,7 @@ function SingleProductPage() {
         navigate("/");
       }, 3000);
     }
+    // eslint-disable-next-line
   }, [error]);
 
   if (loading) {
