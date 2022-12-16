@@ -1,14 +1,15 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
-import { useUserContext } from "../context/user_context";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function PrivateRoute({ children }) {
-  const { myUser } = useUserContext();
-  if (!myUser) {
-    return <Navigate to="/" />;
-  } else {
-    return children;
-  }
+  const { user } = useAuth0();
+  // if (!user) {
+  //   return <Navigate to="/" />;
+  // } else {
+  //   return children;
+  // }
+  return user ? children : <Navigate to="/" />;
 }
 
 export default PrivateRoute;
