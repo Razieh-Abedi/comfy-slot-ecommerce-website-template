@@ -16,6 +16,20 @@ import { useNavigate } from "react-router-dom";
 const promise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
 const CheckoutForm = () => {
+  const { cart, shipping_fee, total_amount, clearCart } = useCartContext();
+  const { myUser } = useUserContext();
+  const navigate = useNavigate();
+
+  // for stripe:
+  const [succeeded, setSucceeded] = useState(false);
+  const [error, setError] = useState(null);
+  const [processing, setProcessing] = useState("");
+  const [disabled, setDisabled] = useState(true);
+  const [clientSecret, setClientSecret] = useState("");
+
+  const stripe = useStripe();
+  const elements = useElements();
+
   const cardStyle = {
     style: {
       base: {
@@ -33,7 +47,52 @@ const CheckoutForm = () => {
       },
     },
   };
-  return <h4>hello from Stripe Checkout </h4>;
+
+  const createPaymentIntent = async () => {
+    console.log("hello from stripe checkout");
+  };
+  useEffect(() => {
+    createPaymentIntent();
+    // eslint-disable-next-line
+  }, []);
+
+  const handleChange = (event) => {};
+  const handleSubmit = (ev) => {};
+
+  return (
+    <div>
+      <form id="payment-form" onSubmit={handleSubmit}>
+        <CardElement
+          id="card-element"
+          options={cardStyle}
+          onChange={handleChange}
+        />
+        <button disabled={processing || disabled || succeeded} id="submit">
+          <span id="button-text">
+            {processing ? (
+              <div id="spinner" className="spinner"></div>
+            ) : (
+              "Pay Now"
+            )}
+          </span>
+        </button>
+        {/* show errors if any when processing payment */}
+        {error && (
+          <div className="card-error" role="alert">
+            {error}
+          </div>
+        )}
+        {/* show a success message */}
+        <p className={succeeded ? "result-message" : "result-message hidden"}>
+          Payment succeeded. See the result in your{" "}
+          <a href={`https://dashboard.stripe.com/test/payments`}>
+            Stripe dashboard.
+          </a>
+          Refresh the page to pay again.
+        </p>
+      </form>
+    </div>
+  );
 };
 
 const StripeCheckout = () => {
