@@ -4,17 +4,29 @@ import styled from "styled-components";
 function Footer() {
   return (
     <Wrapper>
-      <h5>
-        &copy; {new Date().getFullYear()}
-        <span> Comfy Sloth</span>
-      </h5>
-      <h5>All rights reserved</h5>
+      <div className="top-footer">
+        <h5>
+          &copy; {new Date().getFullYear()}
+          <span> Comfy Sloth</span>
+        </h5>
+        <h5>All rights reserved</h5>
+      </div>
+      <div>
+        <a
+          href="https://raziwebdeveloper.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Developed with ❤ by raziwebdeveloper.com
+        </a>
+      </div>
     </Wrapper>
   );
 }
 
 const Wrapper = styled.footer`
   height: 5rem;
+  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -32,8 +44,15 @@ const Wrapper = styled.footer`
     text-transform: none;
     line-height: 1.25;
   }
+  .top-footer {
+    display: flex;
+  }
+  a {
+    color: var(--clr-white);
+    font-weight: 200;
+  }
   @media (min-width: 776px) {
-    flex-direction: row;
+    flex-direction: column;
   }
 `;
 
